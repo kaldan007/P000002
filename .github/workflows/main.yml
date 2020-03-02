@@ -27,6 +27,6 @@ jobs:
         pip install -e .
     - name: Readme update
       run: |
-        repo = $(basename `git rev-parse --show-toplevel`)
+        repo=$(basename `git rev-parse --show-toplevel`)
         test-cmd asset $repo >> README.md
 
