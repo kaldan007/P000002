@@ -12,6 +12,7 @@ org = g.get_organization('OpenPecha')
 def get_assets_link(repo_name):
     asset_links = []
     repo = org.get_repo(repo_name)
+    print(repo)
     try:
         latest_release_tag = repo.get_latest_release()
     except:
