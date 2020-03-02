@@ -17,6 +17,9 @@ def get_assets_link(repo_name):
     except:
         print('no latest release found')
     assets = latest_release_tag.raw_data['assets']
-    for asset in assets:
-        asset_links.append(asset['browser_download_url'])
+    if assets:
+        for asset in assets:
+            asset_links.append(asset['browser_download_url'])
+    else:
+        asset_links.append('No assets')
     return asset_links
