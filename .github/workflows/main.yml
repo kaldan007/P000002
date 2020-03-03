@@ -27,7 +27,7 @@ jobs:
         pip install -e .
     - name: Readme update
       run: |
-        test-cmd asset $(basename `git rev-parse --show-toplevel`)
+        test-cmd asset $(basename `git rev-parse --show-toplevel`) | sed -n 2p >> README.md
     - name: Commit changes
       run: |
         git config --local user.email "action@github.com"
