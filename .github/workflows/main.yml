@@ -30,6 +30,7 @@ jobs:
         export GITHUB_TOKEN=${{ secrets.TOKEN }}
         repo=$(basename `git rev-parse --show-toplevel`)
         echo $repo
-        test-cmd asset $repo
+        var=$(test-cmd asset $repo)
+        echo $var
       
 
