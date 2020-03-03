@@ -28,7 +28,7 @@ jobs:
         pip install -e .
     - name: Readme update
       run: |
-        echo $GITHUB_TOKEN
+        echo 'hello'
         repo=$(basename `git rev-parse --show-toplevel`)
         test-cmd asset $repo >> README.md
 
