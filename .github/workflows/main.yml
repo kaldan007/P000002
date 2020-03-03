@@ -28,8 +28,9 @@ jobs:
     - name: Readme update
       run: |
         export GITHUB_TOKEN=${{ secrets.TOKEN }}
-        echo $GITHUB_TOKEN
         repo=$(basename `git rev-parse --show-toplevel`)
+        echo $repo
+        test-cmd --help
         test-cmd asset $repo >> README.md
       
 
