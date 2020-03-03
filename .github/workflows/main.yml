@@ -22,13 +22,14 @@ jobs:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        export GITHUB_TOKEN=${{ secrets.TOKEN }}
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -e .
     - name: Readme update
       run: |
-        echo 'hello'
+        echo $GITHUB_TOKEN
         repo=$(basename `git rev-parse --show-toplevel`)
         test-cmd asset $repo >> README.md
+      with:
+        github_token: ${{ secrets.TOKEN }}
 
