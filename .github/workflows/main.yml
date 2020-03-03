@@ -25,10 +25,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -e .
-      with:
-        github_token: ${{ secrets.TOKEN }}
     - name: Readme update
       run: |
+        export GITHUB_TOKEN=${{ secrets.TOKEN }}
         echo $GITHUB_TOKEN
         repo=$(basename `git rev-parse --show-toplevel`)
         test-cmd asset $repo >> README.md
