@@ -28,9 +28,7 @@ jobs:
     - name: Readme update
       run: |
         repo=$(basename `git rev-parse --show-toplevel`)
-        echo $repo
-        var=$(test-cmd asset $repo)
-        echo $var >> README.md
+        test-cmd asset $repo >> README.md
     - name: Commit changes
       run: |
         git config --local user.email "action@github.com"
