@@ -30,6 +30,15 @@ jobs:
         repo=$(basename `git rev-parse --show-toplevel`)
         echo $repo
         var=$(test-cmd asset $repo)
-        echo $var
+        echo $var >> README.md
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Update Catalog" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+         github_token: ${{ secrets.GITHUB_TOKEN }}
       
 
