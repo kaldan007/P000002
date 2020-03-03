@@ -32,5 +32,5 @@ jobs:
     - name: Readme update
       run: |
         repo=$(basename `git rev-parse --show-toplevel`)
-        echo $GITHUB_TOKEN
+        echo $GITHUB_TOKEN`
         test-cmd asset $repo >> README.md
